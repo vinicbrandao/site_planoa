@@ -1,17 +1,20 @@
-// app/actions.ts
-'use server'; // <--- OBRIGATÓRIO: Diz que isso roda no servidor
+'use server';
 
-// Simulação temporária (Substituiremos isso pelo Prisma/Postgres depois)
-export async function loginNoServidor(usuario: string, senhaDigitada: string) {
-  const usuariosValidos: any = {
-      admin: 'admin123',
-      engenheiro: 'engenheiro123',
-      cliente: 'cliente123'
-  };
+import { cookies } from 'next/headers';
 
-  if (usuariosValidos[usuario] && usuariosValidos[usuario] === senhaDigitada) {
-    return usuario; // Retorna o cargo (sucesso)
-  }
+export async function criarSessaoNoServidor(cargo: string) {
+  const cookieStore = await cookies();
+  
+  await cookieStore.set('auth_token', cargo, { 
+    httpOnly: true, 
+    path: '/',
+    maxAge: 60 * 60 * 24 
+  });
 
-  return null; // Falha
+  return true;
+}
+
+export async function logoutNoServidor() {
+  const cookieStore = await cookies();
+  cookieStore.delete('auth_token');
 }
