@@ -51,6 +51,8 @@ export default function Login() {
     } 
   };
 
+
+  
   return (
     // 1. MUDANÇA: Fundo da tela inteira agora usa o azul escuro do Figma (#00025D) e centraliza o cartão na tela (justify-center).
     <div className="flex flex-col items-center justify-center min-h-screen bg-[#00025D] font-sans p-4">
