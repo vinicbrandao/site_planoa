@@ -47,6 +47,7 @@ export default function AutorizacoesUsuarios() {
 
   // 3. ESTADOS DO MENU CUSTOMIZADO
   const [usuarioSelecionado, setUsuarioSelecionado] = useState<any | null>(null);
+  const [autorizacoes, setAutorizacoes] = useState<any[]>([]);
   const [activeDropdown, setActiveDropdown] = useState<'id' | 'nome' | 'email' | null>(null); // Alterado de uid para id
   const [sugestoes, setSugestoes] = useState(usuariosCadastrados);
   
@@ -70,6 +71,7 @@ export default function AutorizacoesUsuarios() {
     setEmail(match.email);
     setStatus(match.status);
     setUsuarioSelecionado(match);
+    setAutorizacoes(match.autorizacoes);
     setActiveDropdown(null); // Esconde a listinha ao selecionar
   };
 
@@ -114,6 +116,12 @@ export default function AutorizacoesUsuarios() {
       preencherDados(match);
     }
   };
+
+  const handleToggleAutorizacao = (index: number) => {
+  setAutorizacoes((lista) =>
+    lista.map((item, i) =>
+      i === index ? { ...item, autorizado: !item.autorizado } : item));
+};
 
   return (
     <div className="flex flex-col h-full bg-white relative w-full">
@@ -241,19 +249,20 @@ export default function AutorizacoesUsuarios() {
                   </tr>
                 </thead>
                 <tbody>
-                  {usuarioSelecionado.autorizacoes.map((item: any, index: number) => (
-                    <tr key={index} className="border-b border-black last:border-b-0 hover:bg-[#d4d4d4] transition-colors">
-                      <td className="p-2 border-r border-black text-black">{item.nome}</td>
-                      <td className="p-2 flex items-center justify-center">
-                        <input 
-                          type="checkbox" 
-                          defaultChecked={item.autorizado}
-                          className="w-5 h-5 cursor-pointer accent-black border-black"
-                        />
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
+                {autorizacoes.map((item: any, index: number) => (
+                  <tr key={index} className="border-b border-black last:border-b-0 hover:bg-[#d4d4d4] transition-colors">
+                    <td className="p-2 border-r border-black text-black">{item.nome}</td>
+                    <td className="p-2 flex items-center justify-center">
+                      <input
+                        type="checkbox"
+                        checked={item.autorizado}
+                        onChange={() => handleToggleAutorizacao(index)}
+                        className="w-5 h-5 cursor-pointer accent-black"
+                      />
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
               </table>
             </div>
 

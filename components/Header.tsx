@@ -9,10 +9,9 @@ import { logoutNoServidor } from '@/app/lib/actions';
 interface HeaderProps {
   onMenuClick: () => void;
   cargo: string | null;
-  isSidebarOpen: boolean; 
 }
 
-export function Header({ onMenuClick, cargo, isSidebarOpen }: HeaderProps) {
+export function Header({ onMenuClick, cargo }: HeaderProps) {
   const router = useRouter();
   
   const [settingsOpen, setSettingsOpen] = useState(false);

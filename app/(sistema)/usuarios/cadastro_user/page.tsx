@@ -40,8 +40,8 @@ export default function CadastroUsuario() {
   };
 
   const handleSalvarClick = () => {
-    if (!nome.trim() || !email.trim() || !senha.trim()) {
-      alert("Por favor, preencha Nome, E-mail e Senha.");
+    if (!nome.trim() || !email.trim()) {
+      alert("Por favor, preencha Nome e E-mail.");
       return;
     }
     setModalConfirmacaoAberto(true);
@@ -55,7 +55,6 @@ export default function CadastroUsuario() {
       nome: nome,
       email: email,
       perfil: perfil,
-      senha: senha,
       status: status
     };
 
@@ -129,9 +128,8 @@ export default function CadastroUsuario() {
               <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Ex.: exemplo@planoa.com" className="w-full bg-[#D9D9D9] border border-black px-3 py-2 text-black outline-none" />
             </div>
           </div>
-
           
-          <div className="fixed bottom-0 right-0 p-8 bg-white w-[calc(100%-16rem)] border-t border-gray-200 flex justify-end z-10">
+          <div className="mt-8 pt-6 border-t border-gray-200 flex justify-end">
             <button type="button" onClick={handleSalvarClick} className="flex items-center gap-2 cursor-pointer bg-[#0B1B40] hover:bg-blue-900 text-white font-medium py-2.5 px-6 rounded-lg transition transform active:scale-95">
               <Save size={18} /> Salvar Alterações
             </button>
@@ -156,7 +154,7 @@ export default function CadastroUsuario() {
       {/* MODAL 2: SUCESSO */}
       {modalSucessoAberto && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm transition-opacity">
-          <div className="bg-white rounded-2xl border border-black shadow-xl p-6 w-full max-sm animate-in fade-in zoom-in duration-200 flex flex-col items-center text-center">
+          <div className="bg-white rounded-2xl border border-black shadow-xl p-6 w-full max-w-sm animate-in fade-in zoom-in duration-200 flex flex-col items-center text-center">
             <CheckCircle2 size={48} className="text-green-600 mb-4" />
             <h2 className="text-xl font-bold text-black mb-2">Sucesso!</h2>
             <p className="text-gray-700 mb-8 text-base">Usuário cadastrado e pronto para o login!</p>

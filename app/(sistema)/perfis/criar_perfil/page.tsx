@@ -149,7 +149,7 @@ export default function CriarPerfil() {
           </div>
 
           {/* BOTÃO SALVAR (Com evento onClick) */}
-          <div className="fixed bottom-0 right-0 p-8 bg-white w-[calc(100%-16rem)] border-t border-gray-200 flex justify-end z-10">
+          <div className="mt-8 pt-6 border-t border-gray-200 flex justify-end">
             <button 
               type="button" 
               onClick={handleAbrirSalvar}

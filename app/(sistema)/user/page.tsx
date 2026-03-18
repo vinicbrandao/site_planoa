@@ -1,14 +1,15 @@
 'use client';
 
+import { Suspense } from 'react';
 import { User, Mail, Hash, Pencil, Save, ArrowLeft, Shield } from 'lucide-react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 
-export default function PerfilPage() {
+// Componente externo que usa useSearchParams
+function PerfilConteudo() {
   const searchParams = useSearchParams();
   const cargo = searchParams.get('cargo') || 'Visitante';
 
-  // Objeto do usuário simulando dados vindos do banco
   const usuario = {
     id: '20fdnf-fmvrmu-mfdlol20jj',
     nome: 'Vinícius Brandão',
@@ -16,9 +17,8 @@ export default function PerfilPage() {
   };
 
   return (
-    // Adicionado pt-8 para não colar no header e centralizado na tela
     <div className="flex flex-col h-full bg-white w-full">
-        
+      
 {/* CABEÇALHO (Ocupando toda a largura no topo) */}
       <div className="px-8 py-6 border-b border-gray-200 flex justify-between items-center bg-white shrink-0">
         <div className="flex items-center gap-4">
@@ -39,7 +39,7 @@ export default function PerfilPage() {
 
     <div className="p-8 flex-1 overflow-y-auto w-full">
       <div className="max-w-4xl space-y-6">
-          {/* Campo Nome */}
+          {/* Nome */}
           <div className="space-y-2">
             <label className="text-xs font-bold text-gray-500 uppercase tracking-wider">Nome Completo</label>
             <div className="flex items-center gap-4 bg-gray-50 p-3 rounded-xl border border-gray-200 focus-within:border-blue-500 focus-within:ring-2 focus-within:ring-blue-100 transition group">
@@ -53,7 +53,7 @@ export default function PerfilPage() {
             </div>
           </div>
 
-          {/* Campo Email */}
+          {/* Email */}
           <div className="space-y-2">
              <label className="text-xs font-bold text-gray-500 uppercase tracking-wider">E-mail Corporativo</label>
              <div className="flex items-center gap-4 bg-gray-50 p-3 rounded-xl border border-gray-200 focus-within:border-blue-500 focus-within:ring-2 focus-within:ring-blue-100 transition group">
@@ -68,7 +68,7 @@ export default function PerfilPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Campo Perfil/Cargo (Novo) */}
+            {/* Campo Perfil/Cargo */}
             <div className="space-y-2">
                <label className="text-xs font-bold text-gray-500 uppercase tracking-wider">Perfil de Acesso</label>
                <div className="flex items-center gap-4 bg-gray-100 p-3 rounded-xl border border-gray-200 opacity-80 cursor-not-allowed">
@@ -101,5 +101,13 @@ export default function PerfilPage() {
       </div>
     </div>
   </div>
+  );
+}
+
+export default function PerfilPage() {
+  return (
+    <Suspense fallback={null}>
+      <PerfilConteudo />
+    </Suspense>
   );
 }

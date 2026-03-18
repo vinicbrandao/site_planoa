@@ -96,7 +96,6 @@ if (pathname.startsWith('/indicadores')) {
         isOpen ? 'w-64' : 'w-0'
       }`}
     >
-      {/* 👇 REMOVI O BLOCO DE BOAS VINDAS DAQUI 👇 */}
 
       <nav className="flex-1 px-4 space-y-4 min-w-[16rem] mt-6">
           <div className="space-y-1">

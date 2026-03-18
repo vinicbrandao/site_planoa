@@ -1,16 +1,12 @@
-'use client'; 
+'use client';
 
-import { useSearchParams } from 'next/navigation';
+import { Suspense } from 'react';
 import { ChevronDown, Filter } from 'lucide-react';
 
 export default function DashboardPage() {
-  const searchParams = useSearchParams();
-  const cargo = searchParams.get('cargo');
-
   return (
-    // Note que não temos mais a tag <DashboardShell> aqui!
-    // Usamos apenas uma <div> comum para organizar o conteúdo interno com um padding (p-6)
-    <div className="p-6 h-full flex flex-col gap-6 overflow-y-auto w-full">
+    <Suspense fallback={null}>
+      <div className="p-6 h-full flex flex-col gap-6 overflow-y-auto w-full">
       
       {/* Botão de Filtro Global */}
         <div className="w-full bg-gray-200 h-12 rounded-lg mb-8 flex items-center px-4 shadow-sm border border-gray-300">
@@ -46,5 +42,6 @@ export default function DashboardPage() {
       </div>
 
     </div>
+    </Suspense>
   );
 }

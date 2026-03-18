@@ -4,6 +4,8 @@ import { criarSessaoNoServidor } from '../lib/actions';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { User, Lock, Loader2 } from 'lucide-react'; 
+import Image from 'next/image';
+
 
 export default function Login() {
   const [usuario, setUsuario] = useState('');
@@ -51,8 +53,6 @@ export default function Login() {
     } 
   };
 
-
-  
   return (
     // 1. MUDANÇA: Fundo da tela inteira agora usa o azul escuro do Figma (#00025D) e centraliza o cartão na tela (justify-center).
     <div className="flex flex-col items-center justify-center min-h-screen bg-[#00025D] font-sans p-4">
@@ -61,7 +61,7 @@ export default function Login() {
       <div className="bg-[#D9D9D9] p-10 md:p-14 rounded-3xl shadow-2xl w-full max-w-xl flex flex-col items-center">
         
         {/* 3. MUDANÇA: A logo foi movida para DENTRO do cartão cinza, como no seu design. */}
-        <img src="/logo-planoa.png" alt="Logo Plano A" className="w-96 h-auto mb-10 object-contain"/>
+        <Image src="/logo-planoa.png" width={384} height={100} alt="Logo Plano A" />
         
         <form onSubmit={handleLogin} className="flex flex-col gap-5 w-full max-w-sm">
           

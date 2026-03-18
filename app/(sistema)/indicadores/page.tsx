@@ -40,17 +40,17 @@ function useVisivelNaTela() {
 // DADOS DOS GRÁFICOS
 // ==========================================
 const barChartData = [
-  { mes: "Abr", previsto: 10, realizado: 11},
-  { mes: "Mai", previsto: 10, realizado: 11 },
-  { mes: "Jun", ativas: 7, concluidas: 3 },
-  { mes: "Jul", ativas: 10, concluidas: 4 },
-  { mes: "Ago", ativas: 8, concluidas: 6 },
-  { mes: "Set", ativas: 12, concluidas: 7 }
+  { mes: "Abr", previstas: 17, realizadas: 11},
+  { mes: "Mai", previstas: 10, realizadas: 11 },
+  { mes: "Jun", previstas: 7, realizadas: 3 },
+  { mes: "Jul", previstas: 10, realizadas: 4 },
+  { mes: "Ago", previstas: 8, realizadas: 6 },
+  { mes: "Set", previstas: 12, realizadas: 7 }
 ]
 
 const barChartConfig = {
-  ativas: { label: "Obras Ativas", color: "#0048FF" },
-  concluidas: { label: "Concluídas", color: "#0B1B40" },
+  previstas: { label: "Previstas", color: "#0048FF" },
+  realizadas: { label: "Realizadas", color: "#0B1B40" },
 } satisfies ChartConfig;
 
 const donutChartData = [
@@ -106,7 +106,6 @@ export default function Indicadores() {
     <div className="flex flex-col h-full bg-white relative w-full">
 
       <div className="p-8 flex-1 overflow-y-auto w-full pt-6">
-        
         {/* ======================================================== */}
         {/* PRIMEIRA SESSÃO: VISÃO GERAL DO SEMESTRE (3 Colunas)     */}
         {/* ======================================================== */}
@@ -135,8 +134,8 @@ export default function Indicadores() {
                     <XAxis dataKey="mes" tickLine={false} axisLine={false} tick={{ fill: '#000' }} />
                     <YAxis ticks={[0, 3, 6, 9, 12, 15, 18]} tickLine={false} axisLine={false} tick={{ fill: '#6b7280' }} />
                     <ChartTooltip cursor={{ fill: 'rgba(0,0,0,0.05)' }} content={<ChartTooltipContent />} />
-                    <Bar dataKey="" fill="var(--color-ativas)" radius={[4, 4, 0, 0]} />
-                    <Bar dataKey="concluidas" fill="var(--color-concluidas)" radius={[4, 4, 0, 0]} />
+                    <Bar dataKey="previstas" fill="var(--color-previstas)" radius={[4, 4, 0, 0]} />
+                    <Bar dataKey="realizadas" fill="var(--color-realizadas)" radius={[4, 4, 0, 0]} />
                   </BarChart>
                 </ChartContainer>
               )}
