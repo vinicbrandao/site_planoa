@@ -3,6 +3,7 @@
 import { Search, Edit, X } from 'lucide-react';
 import { useState } from 'react';
 import Link from 'next/link';
+import { IPerfil, IUsuarioPerfil } from '@/lib/types';
 
 // "BANCO DE DADOS" SINCRONIZADO
 // Os IDs '1', '2' e '3' agora batem exatamente com os IDs da tela de Editar Usuário!
@@ -40,7 +41,7 @@ export default function ConsultarPerfil() {
   const [busca, setBusca] = useState('');
   
   // ESTADO: Guarda qual perfil foi clicado para abrir o pop-up
-  const [perfilAberto, setPerfilAberto] = useState<any | null>(null);
+  const [perfilAberto, setPerfilAberto] = useState<IPerfil | null>(null);
 
   // Filtro Dinâmico
   const perfisFiltrados = listaPerfis.filter((perfil) =>
@@ -157,7 +158,7 @@ export default function ConsultarPerfil() {
 
             {/* Lista dos Usuários */}
             <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 max-h-60 overflow-y-auto pr-4">
-              {perfilAberto.usuarios.map((user: any) => (
+              {perfilAberto.usuarios.map((user: IUsuarioPerfil) => (
                 <li key={user.id} className="flex justify-between items-center py-2 border-b border-gray-200 last:border-0 hover:bg-white transition-colors px-2">
                   <span className="text-black font-normal">{user.nome}</span>
                   

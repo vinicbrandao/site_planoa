@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
+import { IUsuário, IAutorização } from '@/lib/types';
 
 // 1. NOSSO "BANCO DE DADOS"
 const usuariosCadastrados = [
@@ -46,8 +47,8 @@ export default function AutorizacoesUsuarios() {
   const [status, setStatus] = useState('');
 
   // 3. ESTADOS DO MENU CUSTOMIZADO
-  const [usuarioSelecionado, setUsuarioSelecionado] = useState<any | null>(null);
-  const [autorizacoes, setAutorizacoes] = useState<any[]>([]);
+  const [usuarioSelecionado, setUsuarioSelecionado] = useState<IUsuario | null>(null);
+  const [autorizacoes, setAutorizacoes] = useState<IAutorizacao[]>([]);
   const [activeDropdown, setActiveDropdown] = useState<'id' | 'nome' | 'email' | null>(null); // Alterado de uid para id
   const [sugestoes, setSugestoes] = useState(usuariosCadastrados);
   
@@ -249,7 +250,7 @@ export default function AutorizacoesUsuarios() {
                   </tr>
                 </thead>
                 <tbody>
-                {autorizacoes.map((item: any, index: number) => (
+                {autorizacoes.map((item: IAutorizacao, index: number) => (
                   <tr key={index} className="border-b border-black last:border-b-0 hover:bg-[#d4d4d4] transition-colors">
                     <td className="p-2 border-r border-black text-black">{item.nome}</td>
                     <td className="p-2 flex items-center justify-center">

@@ -2,9 +2,8 @@
 
 import { Search, Edit } from 'lucide-react';
 import { useState } from 'react';
-import Link from 'next/link'; // 👇 1. Importação do Link adicionada aqui
+import Link from 'next/link';
 
-// BASE DE DADOS (Lista de Usuários)
 const listaUsuarios = [
   { id: 1, nome: 'Vinícius Brandão', email: 'vinicius@planoa.com', perfil: 'Administrador', status: 'Ativo' },
   { id: 2, nome: 'João da Silva', email: 'joaodasilva@gmail.com', perfil: 'Engenheiro Civil', status: 'Ativo' },
@@ -27,7 +26,6 @@ export default function ConsultarUsuario() {
 
   return (
     <div className="flex flex-col h-full bg-white relative w-full">
-      
       {/* TÍTULO DA PÁGINA */}
       <div className="bg-[#e6e6e6] border-b border-gray-800 px-6 py-2 flex items-center shrink-0">
         <h1 className="text-2xl font-normal text-black tracking-wide">
@@ -109,7 +107,7 @@ export default function ConsultarUsuario() {
                 // Se a busca não encontrar ninguém, mostra essa mensagem:
                 <tr>
                   <td colSpan={5} className="p-8 text-center text-gray-500 font-medium">
-                    Nenhum usuário encontrado para "{busca}"
+                    Nenhum usuário encontrado para '{busca}'
                   </td>
                 </tr>
               )}

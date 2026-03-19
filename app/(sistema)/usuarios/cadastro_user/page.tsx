@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { Save, CheckCircle2 } from 'lucide-react';
 
 const opcoesPerfil = [
@@ -15,7 +15,6 @@ export default function CadastroUsuario() {
   const [status, setStatus] = useState('Ativo');
   const [perfil, setPerfil] = useState('');
   const [email, setEmail] = useState('');
-  const [senha, setSenha] = useState(''); // 1. NOVO: Estado para a senha
 
   const [mostrarDropdown, setMostrarDropdown] = useState(false);
   const [opcoesFiltradas, setOpcoesFiltradas] = useState(opcoesPerfil);
@@ -76,7 +75,6 @@ export default function CadastroUsuario() {
     setNome('');
     setPerfil('');
     setEmail('');
-    setSenha(''); // Limpa a senha também
     setStatus('Ativo');
   };
 

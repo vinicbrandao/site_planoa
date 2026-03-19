@@ -82,8 +82,7 @@ if (pathname.startsWith('/indicadores')) {
       <Link 
         href={hrefWithAuth} 
         className={`flex items-center gap-2 px-2 py-2 rounded-lg transition-all font-medium whitespace-nowrap
-          ${isActive ? 'bg-blue-800 text-white' : 'text-blue-100 hover:text-white hover:bg-white/10'}`}
-      >
+          ${isActive ? 'bg-blue-800 text-white' : 'text-blue-100 hover:text-white hover:bg-white/10'}`}>
         <Icon size={20} />
         {label}
       </Link>

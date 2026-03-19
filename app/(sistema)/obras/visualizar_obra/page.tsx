@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Search, ChevronDown, ChevronUp } from 'lucide-react';
+import { IObra, IUsuario } from '@/lib/types';
 
 // ====================================================
 // BANCOS DE DADOS FAKE
@@ -23,7 +24,7 @@ const obrasDoSistema = [
 
 export default function VisualizarObra() {
   const [buscaObraPrincipal, setBuscaObraPrincipal] = useState('');
-  const [obraSelecionada, setObraSelecionada] = useState<any>(null);
+  const [obraSelecionada, setObraSelecionada] = useState<IObra | null>(null);
   const [mostrarTabelaUsuarios, setMostrarTabelaUsuarios] = useState(false);
 
   const obrasFiltradas = buscaObraPrincipal.trim() === '' ? [] : obrasDoSistema.filter(obra =>
@@ -31,7 +32,7 @@ export default function VisualizarObra() {
     obra.codigoSienge.includes(buscaObraPrincipal)
   );
 
-  const handleSelecionarObra = (obra: any) => {
+  const handleSelecionarObra = (obra: IObra) => {
     setObraSelecionada(obra);
     setMostrarTabelaUsuarios(false);
     setBuscaObraPrincipal('');
@@ -137,7 +138,7 @@ export default function VisualizarObra() {
                         </tr>
                       </thead>
                       <tbody>
-                        {obraSelecionada.usuarios.map((u: any) => (
+                        {obraSelecionada.usuarios.map((u: IUsuario) => (
                           <tr key={u.id} className="border-b border-black last:border-b-0 hover:bg-gray-50 transition-colors">
                             <td className="p-3 text-black border-r border-black">{u.nome}</td>
                             <td className="p-3 text-black border-r border-black">{u.email}</td>
