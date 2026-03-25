@@ -1,9 +1,7 @@
 import { ReactNode, Suspense } from "react";
 import { DashboardShell } from "@/components/DashboardShell";
 
-export default function SistemaLayout({
-  children,
-}: {
+export default function SistemaLayout({ children, }: {
   children: ReactNode;
 }) {
   return (

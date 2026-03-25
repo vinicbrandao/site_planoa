@@ -10,24 +10,27 @@ interface DashboardShellProps {
 }
 
 export function DashboardShell({ children }: DashboardShellProps) {
-  // O estado geral que dita se a sidebar tá aberta ou não
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const searchParams = useSearchParams();
   const cargo = searchParams.get('cargo');
 
   return (
-    <div className="flex flex-col h-screen bg-gray-100 font-sans overflow-hidden">
-      {/* HEADER recebe a função de inverter o state da sidebar ao clicar no menu */}
+    // 1. Trocamos 'h-screen' por 'min-h-screen' e removemos o 'overflow-hidden'
+    <div className="flex flex-col min-h-screen bg-[#080818] font-sans">
       <Header 
         onMenuClick={() => setSidebarOpen(!sidebarOpen)} 
-        cargo={cargo} />
+        cargo={cargo} 
+        isSidebarOpen={sidebarOpen}
+      />
 
-      {/* ÁREA INFERIOR (Sidebar + Main Content) */}
-      <div className="flex flex-1 overflow-hidden">
+      {/* 2. Removemos os 'overflow-hidden' das divs filhas também */}
+      <div className="flex flex-1">
         <Sidebar 
-          isOpen={!sidebarOpen} 
-          cargo={cargo} />
-        <main className="flex-1 overflow-hidden flex flex-col bg-gray-50 p-0">
+          isOpen={sidebarOpen} 
+          cargo={cargo} 
+          onClose={() => setSidebarOpen(false)}
+        />
+        <main className="flex-1 flex flex-col p-0">
          {children}
         </main>
       </div>

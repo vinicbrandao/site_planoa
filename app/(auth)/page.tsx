@@ -6,7 +6,6 @@ import { useRouter } from 'next/navigation';
 import { User, Lock, Loader2 } from 'lucide-react'; 
 import Image from 'next/image';
 
-
 export default function Login() {
   const [usuario, setUsuario] = useState('');
   const [senha, setSenha] = useState('');
@@ -58,15 +57,15 @@ export default function Login() {
     <div className="flex flex-col items-center justify-center min-h-screen bg-[#00025D] font-sans p-4">
       
       {/* 2. MUDANÇA: O Cartão agora tem fundo cinza claro (#D9D9D9), está mais largo (max-w-xl) e tem bordas mais arredondadas (rounded-3xl). */}
-      <div className="bg-[#D9D9D9] p-10 md:p-14 rounded-3xl shadow-2xl w-full max-w-xl flex flex-col items-center">
+      <div className="bg-[#D9D9D9] p-10 md:p-14 rounded-3xl shadow-2xl border border-black w-full max-w-xl flex flex-col items-center">
         
         {/* 3. MUDANÇA: A logo foi movida para DENTRO do cartão cinza, como no seu design. */}
-        <Image src="/logo-planoa.png" width={384} height={100} alt="Logo Plano A" />
+        <Image src="/logo-planoa-preto.png" width={385} height={100} alt="Logo Plano A" />
         
         <form onSubmit={handleLogin} className="flex flex-col gap-5 w-full max-w-sm">
           
           {/* 4. MUDANÇA: Input de "E-mail" com fundo cinza escuro (#8D8D8D), bordas arredondadas e texto/ícone preto. */}
-          <div className="flex items-center bg-[#8D8D8D] rounded-xl px-4 transition-all focus-within:ring-2 focus-within:ring-[#0048FF]">
+          <div className="flex items-center bg-[#8D8D8D] mt-4 rounded-xl px-4 transition-all focus-within:ring-2 focus-within:ring-[#0048FF]">
             <User className="text-black" size={20} />
             <input 
               type="text" 
@@ -103,7 +102,7 @@ export default function Login() {
             <button 
               type="submit" 
               disabled={carregando}
-              className="cursor-pointer bg-[#0048FF] text-white py-3 px-8 rounded-lg hover:bg-blue-700 transition-all font-medium disabled:bg-blue-900 disabled:cursor-not-allowed flex justify-center items-center gap-2 shadow-md"
+              className="cursor-pointer bg-[#0048FF] text-black py-3 px-8 rounded-lg hover:bg-blue-700 transition-all font-medium disabled:bg-blue-900 disabled:cursor-not-allowed flex justify-center items-center gap-2 shadow-md"
             >
               {carregando ? (
                 <>
@@ -115,7 +114,6 @@ export default function Login() {
               )}
             </button>
           </div>
-
         </form>
       </div>
     </div>

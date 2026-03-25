@@ -11,10 +11,8 @@ const listaUsuarios = [
 ];
 
 export default function ConsultarUsuario() {
-  // Estado que guarda o que o usuário digitou na barra
   const [busca, setBusca] = useState('');
 
-  // O React lê a lista inteira e só guarda quem tiver o nome, email ou perfil igual ao texto buscado
   const usuariosFiltrados = listaUsuarios.filter((usuario) => {
     const textoBuscado = busca.toLowerCase();
     return (
@@ -25,77 +23,74 @@ export default function ConsultarUsuario() {
   });
 
   return (
-    <div className="flex flex-col h-full bg-white relative w-full">
-      {/* TÍTULO DA PÁGINA */}
-      <div className="bg-[#e6e6e6] border-b border-gray-800 px-6 py-2 flex items-center shrink-0">
-        <h1 className="text-2xl font-normal text-black tracking-wide">
+    <div className="flex flex-col h-full bg-[#080818] relative w-full">
+      {/* HEADER INTEGRADO */}
+      <div className="bg-[#0D0D1F] border-b border-white/20 px-6 py-2 flex items-center shrink-0">
+        <h1 className="text-2xl font-normal text-white tracking-wide">
           Consulta de Usuários
         </h1>
       </div>
 
-      {/* CONTEÚDO */}
       <div className="p-8 flex-1 overflow-y-auto w-full">
         
-        {/* Subtítulo */}
         <div className="mb-6">
-          <span className="text-xl text-black border-b border-black pb-1 pr-8 inline-block font-normal">
+          <span className="text-xl text-white border-b border-white/20 pb-1 pr-8 inline-block font-normal">
             Consulte na caixa de pesquisa abaixo
           </span>
         </div>
 
-        {/* 3. BARRA DE PESQUISA */}
+        {/* BARRA DE PESQUISA */}
         <div className="relative max-w-2xl mb-8">
           <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-            <Search size={20} className="text-gray-500" />
+            <Search size={20} className="text-slate-400" />
           </div>
           <input
             type="text"
             value={busca}
-            onChange={(e) => setBusca(e.target.value)} // Atualiza a busca a cada letra digitada
+            onChange={(e) => setBusca(e.target.value)}
             placeholder="Buscar por nome, e-mail ou perfil..."
-            className="w-full bg-[#e6e6e6] border border-black pl-10 pr-4 py-2.5 outline-none text-black focus:ring-1 focus:ring-black"
+            className="w-full bg-[#1a1a2e] border border-white/20 pl-10 pr-4 py-2.5 outline-none text-white focus:ring-1 focus:ring-white/30 placeholder-slate-500 rounded-lg"
           />
         </div>
 
-        {/* 4. TABELA DE RESULTADOS */}
-        <div className="overflow-x-auto">
-          <table className="w-full text-left border-collapse border border-black min-w-[800px]">
+        {/* TABELA DE RESULTADOS */}
+        <div className="overflow-x-auto rounded-lg border border-white/10 bg-[#0D0D1F]">
+          <table className="w-full text-left border-collapse min-w-[800px]">
             <thead>
-              <tr className="bg-[#e6e6e6] border-b border-black">
-                <th className="p-3 border-r border-black font-medium text-black">Nome</th>
-                <th className="p-3 border-r border-black font-medium text-black">E-mail</th>
-                <th className="p-3 border-r border-black font-medium text-black">Perfil</th>
-                <th className="p-3 border-r border-black font-medium text-black text-center w-32">Status</th>
-                <th className="p-3 font-medium text-black text-center w-28">Ações</th>
+              <tr className="bg-white/5 border-b border-white/10">
+                <th className="p-4 border-r border-white/10 font-medium text-slate-300">Nome</th>
+                <th className="p-4 border-r border-white/10 font-medium text-slate-300">E-mail</th>
+                <th className="p-4 border-r border-white/10 font-medium text-slate-300">Perfil</th>
+                <th className="p-4 border-r border-white/10 font-medium text-slate-300 text-center w-32">Status</th>
+                <th className="p-4 font-medium text-slate-300 text-center w-28">Ações</th>
               </tr>
             </thead>
             <tbody>
-              {/* O map agora roda na lista FILTRADA, e não na lista original! */}
               {usuariosFiltrados.length > 0 ? (
                 usuariosFiltrados.map((usuario) => (
-                  <tr key={usuario.id} className="border-b border-black hover:bg-gray-50 transition-colors">
-                    <td className="p-3 border-r border-black text-black">{usuario.nome}</td>
-                    <td className="p-3 border-r border-black text-black">{usuario.email}</td>
-                    <td className="p-3 border-r border-black text-black">{usuario.perfil}</td>
+                  <tr key={usuario.id} className="border-b border-white/10 hover:bg-white/5 transition-colors">
+                    <td className="p-4 border-r border-white/10 text-slate-200">{usuario.nome}</td>
+                    <td className="p-4 border-r border-white/10 text-slate-400">{usuario.email}</td>
+                    <td className="p-4 border-r border-white/10 text-slate-300">{usuario.perfil}</td>
                     
-                    {/* Status com as "Pílulas" coloridas */}
-                    <td className="p-3 border-r border-black text-center">
-                      <span className={`inline-block px-3 py-0.5 rounded-full text-sm font-medium border ${
+                    {/* Pílulas de Status */}
+                    <td className="p-4 border-r border-white/10 text-center">
+                      <span className={`inline-block px-3 py-1 rounded-full text-xs font-semibold tracking-wide ${
                         usuario.status === 'Ativo' 
-                          ? 'bg-green-100 text-green-700 border-green-500' 
-                          : 'bg-red-100 text-red-700 border-red-500'
+                          ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' 
+                          : 'bg-red-500/10 text-red-400 border border-red-500/20'
                       }`}>
                         {usuario.status}
                       </span>
                     </td>
                     
-                    {/* Botões de Ação (Editar) */}
-                    <td className="p-3 text-center">
-                      <div className="flex justify-center items-center gap-3">
-                        {/* 👇 2. O botão virou um <Link> apontando para a página de edição 👇 */}
+                    {/* Botões de Ação */}
+                    <td className="p-4 text-center">
+                      <div className="flex justify-center items-center">
                         <Link 
                           href={`/usuarios/editar_user?id=${usuario.id}`} 
-                          className="text-blue-600 hover:text-blue-800 transition-colors cursor-pointer block p-1" 
+                          className="text-blue-400 hover:text-blue-300 hover:bg-blue-500/10 p-2 rounded-md transition-all cursor-pointer inline-flex"
+                          title="Editar Usuário"
                         >
                           <Edit size={18} />
                         </Link>
@@ -104,9 +99,8 @@ export default function ConsultarUsuario() {
                   </tr>
                 ))
               ) : (
-                // Se a busca não encontrar ninguém, mostra essa mensagem:
                 <tr>
-                  <td colSpan={5} className="p-8 text-center text-gray-500 font-medium">
+                  <td colSpan={5} className="p-8 text-center text-slate-500 font-medium">
                     Nenhum usuário encontrado para '{busca}'
                   </td>
                 </tr>
