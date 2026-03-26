@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Menu, User, Settings, LogOut } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { logoutNoServidor } from '@/app/lib/actions';
+import { logoutNoServidor } from '@/lib/actions';
 
 interface HeaderProps {
   onMenuClick: () => void;

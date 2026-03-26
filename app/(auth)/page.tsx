@@ -1,6 +1,6 @@
 'use client';
 
-import { criarSessaoNoServidor } from '../lib/actions'; 
+import { criarSessaoNoServidor } from '../../lib/actions'; 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { User, Lock, Loader2 } from 'lucide-react'; 
