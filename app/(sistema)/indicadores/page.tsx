@@ -319,7 +319,7 @@ export default function Indicadores() {
           </Card>
         </div>
         {/* === GRADE COM OS 3 NOVOS GRÁFICOS === */}
-        <div className="flex flex-grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-5xl mt-6">
+        <div className="flex flex-grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-full mt-6">
           {/* 1. RADIAL CHART - LABEL (Progresso Físico) */}
           <Card className="p-4 shadow-none bg-transparent border-slate-800 flex flex-col items-center justify-center">
             <CardHeader className="p-0 mb-4 text-center">
