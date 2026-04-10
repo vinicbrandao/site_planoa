@@ -4,11 +4,11 @@ import { cookies } from 'next/headers';
 
 export async function criarSessaoNoServidor(cargo: string) {
   const cookieStore = await cookies();
-  
+
   await cookieStore.set('auth_token', cargo, { 
     httpOnly: true, 
     path: '/',
-    maxAge: 60 * 60 * 24 
+    maxAge: 60 * 30 * 24 
   });
 
   return true;
