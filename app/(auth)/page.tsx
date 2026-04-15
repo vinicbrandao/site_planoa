@@ -20,7 +20,6 @@ export default function Login() {
     setCarregando(true);
 
     try {
-      // Caso 1: Admin Mestre (Acesso de emergência)
       if (usuario === 'admin' && senha === 'admin') {
         await criarSessaoNoServidor('admin');
         router.push(`/dashboard?cargo=admin`);
@@ -65,27 +64,27 @@ export default function Login() {
         <form onSubmit={handleLogin} className="flex flex-col gap-5 w-full max-w-sm">
           
           {/* 4. MUDANÇA: Input de "E-mail" com fundo cinza escuro (#8D8D8D), bordas arredondadas e texto/ícone preto. */}
-          <div className="flex items-center bg-[#8D8D8D] mt-4 rounded-xl px-4 transition-all focus-within:ring-2 focus-within:ring-[#0048FF]">
+          <div className="flex items-center bg-[#424242] mt-4 rounded-xl px-4 transition-all focus-within:ring-2 focus-within:ring-[#0048FF]">
             <User className="text-black" size={20} />
             <input 
               type="text" 
               required
               value={usuario}
               onChange={(e) => setUsuario(e.target.value.toLowerCase())}
-              className="w-full bg-transparent text-black p-3 outline-none placeholder-black font-medium"
+              className="w-full bg-transparent text-[#ffffff] p-3 outline-none placeholder:text-[#ffffff] font-medium"
               placeholder="E-mail:"
             />
           </div>
 
           {/* 5. MUDANÇA: Input de "Senha" seguindo o mesmo estilo do Figma. */}
-          <div className="flex items-center bg-[#8D8D8D] rounded-xl px-4 transition-all focus-within:ring-2 focus-within:ring-[#0048FF]">
+          <div className="flex items-center bg-[#424242] rounded-xl px-4 transition-all focus-within:ring-2 focus-within:ring-[#0048FF]">
             <Lock className="text-black" size={20} />
             <input 
               type="password" 
               required
               value={senha}
               onChange={(e) => setSenha(e.target.value)}
-              className="w-full bg-transparent text-black p-3 outline-none placeholder-black font-medium"
+              className="w-full bg-transparent text-[#ffffff] p-3 outline-none placeholder:text-[#ffffff] font-medium"
               placeholder="Senha:"
             />
           </div>
