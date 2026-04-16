@@ -71,7 +71,7 @@ export default function Login() {
               required
               value={usuario}
               onChange={(e) => setUsuario(e.target.value.toLowerCase())}
-              className="w-full bg-transparent text-[#ffffff] p-3 outline-none placeholder:text-[#ffffff] font-medium"
+              className="w-full bg-transparent text-[#000000] p-3 outline-none placeholder:text-[#000000] font-medium"
               placeholder="E-mail:"
             />
           </div>
@@ -84,7 +84,7 @@ export default function Login() {
               required
               value={senha}
               onChange={(e) => setSenha(e.target.value)}
-              className="w-full bg-transparent text-[#ffffff] p-3 outline-none placeholder:text-[#ffffff] font-medium"
+              className="w-full bg-transparent text-[#000000] p-3 outline-none placeholder:text-[#000000] font-medium"
               placeholder="Senha:"
             />
           </div>
