@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Menu, User, Settings, LogOut } from 'lucide-react';
-import Link from 'next/link';
+import  Link  from 'next/link';
 import { useRouter } from 'next/navigation';
 import { logoutNoServidor } from '@/lib/actions';
 
@@ -12,7 +12,7 @@ interface HeaderProps {
   isSidebarOpen: boolean; 
 }
 
-export function Header({ onMenuClick, cargo, isSidebarOpen }: HeaderProps) {
+export function Header({ onMenuClick, cargo }: HeaderProps) {
   const router = useRouter();
   
   const [settingsOpen, setSettingsOpen] = useState(false);
