@@ -3,7 +3,7 @@
 import { criarSessaoNoServidor } from '../../lib/actions'; 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { User, Lock, Loader2 } from 'lucide-react'; 
+import { Lock, Loader2, Mail, Eye } from 'lucide-react'; 
 import Image from 'next/image';
 
 export default function Login() {
@@ -65,26 +65,26 @@ export default function Login() {
           
           {/* 4. MUDANÇA: Input de "E-mail" com fundo cinza escuro (#8D8D8D), bordas arredondadas e texto/ícone preto. */}
           <div className="flex items-center bg-[#424242] mt-4 rounded-xl px-4 transition-all focus-within:ring-2 focus-within:ring-[#0048FF]">
-            <User className="text-black" size={20} />
+            <Mail className="text-black" size={20} />
             <input 
               type="text" 
               required
               value={usuario}
               onChange={(e) => setUsuario(e.target.value.toLowerCase())}
-              className="w-full bg-transparent text-[#000000] p-3 outline-none placeholder:text-[#000000] font-medium"
+              className="w-full bg-transparent text-[#f8f8f8] p-3 outline-none placeholder:text-[#f8f8f8] font-medium"
               placeholder="E-mail:"
             />
           </div>
 
           {/* 5. MUDANÇA: Input de "Senha" seguindo o mesmo estilo do Figma. */}
           <div className="flex items-center bg-[#424242] rounded-xl px-4 transition-all focus-within:ring-2 focus-within:ring-[#0048FF]">
-            <Lock className="text-black" size={20} />
+            <Lock className="text-black" size={20}  />
             <input 
               type="password" 
               required
               value={senha}
               onChange={(e) => setSenha(e.target.value)}
-              className="w-full bg-transparent text-[#000000] p-3 outline-none placeholder:text-[#000000] font-medium"
+              className="w-full bg-transparent text-[#f8f8f8] p-3 outline-none placeholder:text-[#f8f8f8] font-medium"
               placeholder="Senha:"
             />
           </div>

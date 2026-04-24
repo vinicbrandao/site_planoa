@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, ChevronRight, ChevronDown, Users, Shield, HardHat, UserPlus, UserCog, Search, LogOut, Eye, PlusCircle, Edit, Lock, Key, TrendingUp, } from "lucide-react";
+import { Menu, ChevronRight, ChevronDown, Users, Shield, HardHat, UserPlus, UserCog, Search, LogOut, Eye, PlusCircle, Edit, Lock, Key, TrendingUp, TrendingDown } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation"; 
 
@@ -167,7 +167,7 @@ export function Sidebar({ isOpen, cargo, onClose }: SidebarProps) {
                     <SidebarLink
                       href="/indicadores"
                       icon={TrendingUp}
-                      label="Painel Principal"
+                      label="Dashboards"
                     />
                   </div>
                 )}

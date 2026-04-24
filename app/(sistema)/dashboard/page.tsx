@@ -1,8 +1,10 @@
+// ESSA SERÁ A PÁGINA INICIAL DO SISTEMA
+
 'use client';
 
 import { Suspense, useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { ChevronDown, Filter, TrendingUp, TrendingDown } from 'lucide-react';
+import { ChevronDown, Filter, TrendingUp, TrendingDown, HardHat } from 'lucide-react';
 import { Progress } from "@/components/ui/progress";
 
 
@@ -29,11 +31,14 @@ export default function DashboardPage() {
           
           {/* CARD 1: REVENUE */}
           <Card className="shadow-lg bg-[#0D0D1F] border border-white/10 rounded-xl flex flex-col">
-            <CardHeader className="pb-2">
+            <CardHeader className="pb-2 grid grid-cols-2">
               {/* text-slate-400 para dar aquele aspecto de subtítulo no tema escuro */}
-              <CardTitle className="text-sm font-medium text-slate-400">Revenue</CardTitle>
+              <CardTitle className="grid grid-cols-2 text-sm font-medium text-slate-400">
+                <HardHat size={16} className="grid grid-cols-1 text-gray-500" />
+                Revenue
+                </CardTitle>
             </CardHeader>
-            <CardContent>
+            <CardContent> 
               {/* text-white para o valor principal se destacar */}
               <div className="text-2xl font-bold text-white">$45,231</div>
               <div className="flex items-center pt-1 text-xs text-emerald-400">

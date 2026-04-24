@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Menu, User, Settings, LogOut } from 'lucide-react';
+import { Menu, User, Settings, LogOut, Bell } from 'lucide-react';
 import  Link  from 'next/link';
 import { useRouter } from 'next/navigation';
 import { logoutNoServidor } from '@/lib/actions';
@@ -35,7 +35,7 @@ export function Header({ onMenuClick, cargo }: HeaderProps) {
             <Menu className="text-blue-900 cursor-pointer" size={24} />
           </button>
           <Link href={`/dashboard?cargo=${cargo}`}>
-            <img src="/logo-planoa-branco.png" alt="Logo da plano A" className="h-15 w-auto object-contain cursor-pointer hover:opacity-90 transition" />
+            <img src="/logo-planoa (1).png" alt="Logo da plano A" className="h-15 w-auto object-contain cursor-pointer hover:opacity-90 transition" />
           </Link>
         </div>
 
@@ -47,6 +47,10 @@ export function Header({ onMenuClick, cargo }: HeaderProps) {
           <Link href={`/user?cargo=${cargo}`} className="p-2 hover:bg-[#04044b] rounded-full transition cursor-pointer">
             <User className="text-gray-500 hover:text-blue-900" size={24} />
           </Link>
+
+          <div>
+            <Bell className="text-gray-500 hover:text-blue-900 cursor-pointer transition" size={24} />
+          </div>
           
           <div className="relative">
             <button 
